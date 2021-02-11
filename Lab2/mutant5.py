@@ -1,13 +1,13 @@
 def insertionSort(array):
-    maxSwap = len(array)
+    #instead of maxSwap = len(array)
+    maxSwap = len(array) - 1
     i = 1
     while i < maxSwap:
         j = i
         while (j > 0) and (array[j] < array[(j - 1)]):
             tmp = array[j]
             array[j] = array[j - 1]
-            #instead of array[j - 1] = tmp
-            array[j] = tmp
+            array[j - 1] = tmp
             j = j - 1 
         i = i + 1
     return array
@@ -18,6 +18,7 @@ def memberinArray(element, array):
 
     x = (left + right) // 2
     while array[x] != element and left <= right:
+        
         if element < array[x]:
             right = x - 1
         else:
@@ -27,7 +28,8 @@ def memberinArray(element, array):
     return (array[x] == element)
 
 def III(element, array):
-    sorted = insertionSort(array)
-    memberinArray(element, sorted)
+    insertionSort(array)
+    print(array)
+    memberinArray(element, array)
 
 print(III(3, [1, 2, 48, 293293, 909, 3333, 32, 10, 11, 29, 89898, 3, 20]))
