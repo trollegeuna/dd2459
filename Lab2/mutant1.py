@@ -1,4 +1,6 @@
-def insertionSort(array):
+
+# Mutant 1
+def insertionSortmutant1(array):
     maxSwap = len(array)
     i = 1
     while i < maxSwap:
@@ -11,12 +13,12 @@ def insertionSort(array):
         i = i + 1
     return array
 
-def memberinArray(element, array):
+def memberinArraymutant1(element, array):
     left = 0
     right = len(array) - 1
 
     x = (left + right) // 2
-    while array[x] != element and left <= right:
+    while array[x] != element and left > right: # > is not <= 
         if element < array[x]:
             right = x - 1
         else:
@@ -25,9 +27,9 @@ def memberinArray(element, array):
 
     return (array[x] == element)
 
-def III(element, array):
-    sorted = insertionSort(array)
+def IIImutant1(element, array):
+    sorted = insertionSortmutant1(array)
     print(sorted)
-    return memberinArray(element, sorted)
+    return memberinArraymutant1(element, sorted)
 
-print(III(3, [1, 2, 48, 293293, 909, 3333, 32, 10, 11, 29, 89898, 3, 20]))
+print(IIImutant1(3, [1, 2, 48, 293293, 909, 3333, 32, 10, 11, 29, 89898, 3, 20]))
