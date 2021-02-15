@@ -21,7 +21,7 @@ def memberinArray(element, array):
         if element < array[x]:
             right = x - 1
         else:
-            left = x - 1
+            left = x + 1
         x = (left + right) // 2
 
     return (array[x] == element)
@@ -30,4 +30,4 @@ def III(element, array):
     sorted = insertionSort(array)
     memberinArray(element, sorted)
 
-print(III(3, [1, 2, 48, 293293, 909, 3333, 32, 10, 11, 29, 89898, 3, 20]))
+#print(III(3, [1, 2, 48, 293293, 909, 3333, 32, 10, 11, 29, 89898, 3, 20]))

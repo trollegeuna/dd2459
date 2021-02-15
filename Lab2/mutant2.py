@@ -29,7 +29,7 @@ def memberinArrayMutant2(element, array):
 
 def IIIMutant2(element, array):
     sorted = insertionSortMutant2(array)
-    print(array)
+    #print(array)
     return memberinArrayMutant2(element, array)
 
-print(IIIMutant2(89898, [1, 2, 48, 293293, 909, 3333, 32, 10, 11, 29, 89898, 3, 20]))
+#print(IIIMutant2(89898, [1, 2, 48, 293293, 909, 3333, 32, 10, 11, 29, 89898, 3, 20]))

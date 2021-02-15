@@ -24,18 +24,26 @@ def generatePairwise(numberOfElements=6, highest=1000,lowest=1):
     for element in range(numberOfElements):
         newTestCase= defaults[0:element] + typicals[element:element +1] + defaults[element +1:]
         testCases.append((defaultKey, newTestCase))
-    testCases.append((choice(typicals), defaults))
+    testCases.append([choice(typicals), defaults])
 
     #2-wise testcases
     for element1 in range(numberOfElements):
         for element2 in range(element1 +1 , numberOfElements):
             newTestCase = defaults[0:element1] + typicals[element1:element1 +1] + defaults[element1 +1: element2] + typicals[element2:element2 + 1] + defaults[element2 + 1:]
-            testCases.append((defaultKey, newTestCase))
+            testCases.append([defaultKey, newTestCase])
         #2-wise testcases with 1 element inside of the array and the key changing. 
         testCase= defaults[0:element1] + typicals[element1:element1 +1] + defaults[element1 +1:]
-        testCases.append((choice(typicals), testCase))
+        testCases.append([choice(typicals), testCase])
     return testCases
 
 tests= generatePairwise()
 print(tests)
 print(len(tests))
+
+#write to file. 
+with open('pairwiseTestFile.txt', 'w') as f:
+    N = 0
+    while N < 100:
+        for element in generatePairwise():
+            f.write(str(element) + "\n")
+        N += 1
