@@ -23,12 +23,15 @@ def runtests(f, testType):
         testcase = list(eval(line))
         key = testcase[0]
         array = testcase[1]
-        correctAnswer = default.III(key, array)
+        #correctAnswer = default.III(key, array)    
+        correctAnswer = False
+        if key in array:
+            correctAnswer = True
         #print(line)
         #print(correctAnswer)
         if not m1Wrong: 
             try:
-                m1Answer = func_timeout(0.02, m1.IIImutant1, args=(key, array))
+                m1Answer = func_timeout(0.5, m1.IIImutant1, args=(key, array))
                 if m1Answer != correctAnswer:
                     print("m1 error found at testcase: " + str(testcaseCounter) + " Type: " + testType)
                     m1Wrong = True
@@ -38,7 +41,7 @@ def runtests(f, testType):
 
         if not m2Wrong:
             try:
-                m2Answer = func_timeout(0.02, m2.IIIMutant2, args=(key, array))
+                m2Answer = func_timeout(0.5, m2.IIIMutant2, args=(key, array))
                 if m2Answer != correctAnswer:
                     print("m2 error found at testcase: " + str(testcaseCounter)+ " Type: " + testType)
                     m2Wrong = True
@@ -47,7 +50,7 @@ def runtests(f, testType):
         
         if not m3Wrong:
             try:
-                m3Answer = func_timeout(0.02, m3.IIIMutant3, args=(key, array))
+                m3Answer = func_timeout(0.5, m3.IIIMutant3, args=(key, array))
                 if m3Answer != correctAnswer:
                     print("m3 error found at testcase: " + str(testcaseCounter)+ " Type: " + testType)
                     m3Wrong = True
@@ -56,7 +59,7 @@ def runtests(f, testType):
             
         if not m4Wrong:
             try:
-                m4Answer = func_timeout(0.02, m4.III, args=(key, array))
+                m4Answer = func_timeout(0.5, m4.III, args=(key, array))
                 if m4Answer != correctAnswer:
                     print("m4 error found at testcase: " + str(testcaseCounter)+ " Type: " + testType)
                     m4Wrong = True
@@ -65,7 +68,7 @@ def runtests(f, testType):
         
         if not m5Wrong:
             try:
-                m5Answer = func_timeout(0.02, m5.III, args=(key, array))
+                m5Answer = func_timeout(0.5, m5.III, args=(key, array))
                 if m5Answer != correctAnswer:
                     print("m5 error found at testcase: " + str(testcaseCounter)+ " Type: " + testType)
                     m5Wrong = True
@@ -74,13 +77,14 @@ def runtests(f, testType):
         
         if not m6Wrong:
             try:
-                m6Answer = func_timeout(0.02, m6.III, args=(key, array))
+                m6Answer = func_timeout(0.5, m6.III, args=(key, array))
                 if m6Answer != correctAnswer:
                     print("m6 error found at testcase: " + str(testcaseCounter)+ " Type: " + testType)
                     m6Wrong = True
             except FunctionTimedOut:
                 print("m6 timed out with testcase: " + str(testcaseCounter) + " Type: " + testType)
-
+        if (m1Wrong and m2Wrong and m3Wrong and m4Wrong and m5Wrong and m6Wrong):
+            break
         testcaseCounter += 1
         
         
