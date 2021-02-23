@@ -35,11 +35,13 @@ ASSIGN
     esac;
 
     next( Bit1 ) := case
-	-- To Do 
-     esac;
+        input = TRUE : TRUE;
+        input = FALSE : FALSE;
+        TRUE : Bit1;
+    esac;
 
     next( Bit2 ) := case 
-	-- To Do 
+        TRUE: Bit1;
     esac;  
 
 LTLSPEC 
