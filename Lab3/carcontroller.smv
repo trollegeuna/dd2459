@@ -47,6 +47,7 @@ LTLSPEC
 	G( !(state = fast))
 
 -- 1 trap property for edge coverage (which edge?)
+-- Edge stop to slow using accelerate
 LTLSPEC 
 	G( state=stop & accelerate -> X( !(state=slow) ) )
 
